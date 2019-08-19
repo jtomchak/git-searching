@@ -35,7 +35,9 @@ class Search extends Component {
             <div className="control">
               <button
                 disabled={!isEnabled}
-                className="button is-info is-large"
+                className={`button is-info is-large ${
+                  this.props.isLoading ? "is-loading" : ""
+                }`}
                 onClick={this.handleSearchOnClick}
               >
                 Search
