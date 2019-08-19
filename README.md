@@ -5,4 +5,3 @@
 - I see the total count of search results
 - I see notable information for each search result, such as the description, star/follower count, profile pictures, etc.
 - I can select a search result and be taken to the applicable page on github.com API
-# git-searching
