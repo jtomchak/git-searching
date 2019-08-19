@@ -15,8 +15,12 @@ class App extends Component {
     }
   };
 
+  /* 
+  set loading to true
+  fetch results from github api
+  setState with results, 💰
+*/
   handleOnClickSearch = searchTerm => {
-    console.log(searchTerm);
     this.setState({ isLoading: true });
     getUserBy(searchTerm).then(response =>
       this.setState({
