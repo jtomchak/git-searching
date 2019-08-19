@@ -1,3 +1,5 @@
+// https://developer.github.com/v3/#pagination
+
 const baseURL = "https://api.github.com/search/";
 
 const getUserBy = searchTerm =>
