@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Search extends Component {
   render() {
     return (
-      <div className="columns is-mobile">
+      <div className="columns">
         <div className="column is-half is-offset-one-quarter">
           <div className="field has-addons is-expanded">
             <div className="control">
