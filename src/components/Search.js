@@ -13,7 +13,10 @@ class Search extends Component {
   };
 
   //call props 'onSearch' to pass searchTerm Value to parent
-  handleSearchOnClick = () => this.props.onSearch(this.state.searchTerm);
+  handleSearchSubmit = e => {
+    e.preventDefault();
+    this.props.onSearch(this.state.searchTerm);
+  };
 
   render() {
     const { searchTerm } = this.state;
@@ -22,7 +25,10 @@ class Search extends Component {
     return (
       <div className="columns">
         <div className="column is-half is-offset-one-quarter">
-          <div className="field has-addons is-expanded">
+          <form
+            className="field has-addons is-expanded"
+            onSubmit={this.handleSearchSubmit}
+          >
             <div className="control is-expanded">
               <input
                 className="input is-large"
@@ -38,12 +44,12 @@ class Search extends Component {
                 className={`button is-info is-large ${
                   this.props.isLoading ? "is-loading" : ""
                 }`}
-                onClick={this.handleSearchOnClick}
+                type="submit"
               >
                 Search
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     );
