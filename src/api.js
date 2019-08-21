@@ -1,4 +1,7 @@
 // https://developer.github.com/v3/#pagination
+// default per_page is 30
+// https://developer.github.com/v3/guides/traversing-with-pagination/
+// Always rely on these link relations provided to you. Don't try to guess or construct your own URL. 
 
 const baseURL = "https://api.github.com/search/";
 
