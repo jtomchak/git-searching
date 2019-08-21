@@ -1,5 +1,7 @@
 # Git Searching
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7fa21442-8dc8-4805-8d6d-5cd9e9047b76/deploy-status)](https://app.netlify.com/sites/git-searching/deploys)
+
 - I can search for users and see a paginated list of results
 - I can navigate through the next and previous pages of the paginated results
 - I see the total count of search results
