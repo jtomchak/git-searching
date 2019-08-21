@@ -7,9 +7,7 @@ import { getUserBy } from "../api";
 class Search extends Component {
   state = {
     isLoading: false,
-    searchTerm: "",
-    gitUsers: [],
-    totalUsers: null
+    searchTerm: ""
   };
 
   handleSearchInputOnChange = event => {
@@ -27,13 +25,15 @@ setState with results, 💰
   handleSearchSubmit = event => {
     event.preventDefault();
     this.setState({ isLoading: true });
-    getUserBy(this.state.searchTerm).then(response =>
+    getUserBy(this.state.searchTerm).then(response => {
+      this.props.handleSuccess(response)
       this.setState({
         isLoading: false,
-        gitUsers: response.items,
-        totalUsers: response.total_count
       })
-    );
+    }).catch(err => {
+      this.setState({ isLoading: true });
+
+    })
   };
 
   render() {

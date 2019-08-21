@@ -2,11 +2,20 @@ import React, { Component } from "react";
 
 import Search from "./components/Search";
 import HeroTitle from "./components/HeroTitle";
+import GitUserList from "./components/GitUserList"
 import "./App.scss";
 
 class App extends Component {
   state = {
+    gitUsers: [],
+    totalUsers: null
+  }
 
+  handleSearchSuccess = ({ items, total_count }) => {
+    this.setState({
+      gitUsers: items,
+      totalUsers: total_count
+    })
   }
 
 
@@ -17,7 +26,8 @@ class App extends Component {
           title="Git Searching"
           subtitle="All your search are belong to us"
         />
-        <Search />
+        <Search handleSuccess={this.handleSearchSuccess}></Search>
+        <GitUserList gitUsers={this.state.gitUsers} />
       </div>
     );
   }

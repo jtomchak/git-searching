@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ handleInputOnChange, handleSubmit, inputTerm, isLoading }) => {
+export default ({ handleInputOnChange, handleSubmit, inputTerm, isLoading, isEnabled }) => {
 
   return (
     <form
@@ -18,7 +18,7 @@ export default ({ handleInputOnChange, handleSubmit, inputTerm, isLoading }) => 
       </div>
       <div className="control">
         <button
-          disabled={isLoading}
+          disabled={!isEnabled}
           className={`button is-info is-large ${
             isLoading ? "is-loading" : ""
             }`}
