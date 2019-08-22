@@ -7,7 +7,7 @@ const baseURL = "https://api.github.com/search/";
 
 
 const getUsersBySearchTerm = searchTerm => {
-  return getUsersBy(`${baseURL}users?q=${searchTerm}&page=1`)
+  return getUsersBy(`${baseURL}users?q=${searchTerm}&page=11`)
 };
 
 const getUsersWithPagination = url => {

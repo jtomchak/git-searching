@@ -11,7 +11,7 @@ import "./App.scss";
 class App extends Component {
 
   state = {
-    currentGitUsers: [],
+    gitUsers: [],
     totalUsers: null,
     paginationLinks: {}
   }
@@ -28,7 +28,7 @@ class App extends Component {
 
 
   render() {
-    const { gitUsers, totalUsers } = this.state;
+    const { gitUsers, totalUsers, paginationLinks } = this.state;
     return (
       <div className="App">
         <HeroTitle
@@ -38,7 +38,7 @@ class App extends Component {
         <Search handleSuccess={this.handleSearchSuccess}></Search>
         <ErrorBoundary>
           <TotalUsers users={totalUsers} />
-          <Pagination />
+          <Pagination links={paginationLinks} handleSuccess={this.handleSearchSuccess} />
           {gitUsers.length > 0 && <GitUserList gitUsers={gitUsers} />}
         </ErrorBoundary>
       </div>

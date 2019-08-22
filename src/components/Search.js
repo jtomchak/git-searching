@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput"
 import { getUsersBySearchTerm } from "../api";
 
 
-class Search extends Component {
+export default class Search extends Component {
   state = {
     error: null,
     isLoading: false,
@@ -60,4 +60,3 @@ unless error, then set error! ⛔
 }
 
 
-export default Search;
