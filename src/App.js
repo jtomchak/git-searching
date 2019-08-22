@@ -4,32 +4,31 @@ import Search from "./components/Search";
 import HeroTitle from "./components/HeroTitle";
 import GitUserList from "./components/GitUserList";
 import Pagination from "./components/Pagination";
+import TotalUsers from "./components/TotalUsers";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.scss";
 
 class App extends Component {
 
   state = {
-    gitUsers: [],
     currentGitUsers: [],
-    currentPage: null,
-    totalPages: null,
-    totalUsers: null
+    totalUsers: null,
+    paginationLinks: {}
   }
 
 
   handleSearchSuccess = ({ json, headers }) => {
-    console.log(parseLink(headers.get("Link")))
     const { items, total_count } = json;
     this.setState({
       gitUsers: items,
-      totalUsers: total_count
+      totalUsers: total_count,
+      paginationLinks: parseLink(headers.get('Link'))
     })
   }
 
 
   render() {
-    const { gitUsers } = this.state;
+    const { gitUsers, totalUsers } = this.state;
     return (
       <div className="App">
         <HeroTitle
@@ -38,6 +37,7 @@ class App extends Component {
         />
         <Search handleSuccess={this.handleSearchSuccess}></Search>
         <ErrorBoundary>
+          <TotalUsers users={totalUsers} />
           <Pagination />
           {gitUsers.length > 0 && <GitUserList gitUsers={gitUsers} />}
         </ErrorBoundary>
@@ -46,6 +46,14 @@ class App extends Component {
   }
 }
 
+
+/**
+ * Takes 'link' headers from an API response and gives us back a nice object with
+ * with available urls for pagination from that response. 
+ * https://gist.github.com/niallo/3109252#gistcomment-3003309
+ * @param {*} s
+ * @returns
+ */
 function parseLink(s) {
   const output = {};
   const regex = /<([^>]+)>; rel="([^"]+)"/g;
