@@ -4,9 +4,11 @@ import Search from "./components/Search";
 import HeroTitle from "./components/HeroTitle";
 import GitUserList from "./components/GitUserList";
 import Pagination from "./components/Pagination";
+import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.scss";
 
 class App extends Component {
+
   state = {
     gitUsers: [],
     currentGitUsers: [],
@@ -15,8 +17,10 @@ class App extends Component {
     totalUsers: null
   }
 
-  handleSearchSuccess = ({ items, total_count, headers }) => {
-    console.log(headers.get('Link'))
+
+  handleSearchSuccess = ({ json, headers }) => {
+    console.log(headers.get("Link"))
+    const { items, total_count } = json;
     this.setState({
       gitUsers: items,
       totalUsers: total_count
@@ -25,6 +29,7 @@ class App extends Component {
 
 
   render() {
+    const { gitUsers } = this.state;
     return (
       <div className="App">
         <HeroTitle
@@ -32,8 +37,10 @@ class App extends Component {
           subtitle="All your search are belong to us"
         />
         <Search handleSuccess={this.handleSearchSuccess}></Search>
-        <Pagination />
-        <GitUserList gitUsers={this.state.gitUsers} />
+        <ErrorBoundary>
+          <Pagination />
+          {gitUsers.length > 0 && <GitUserList gitUsers={gitUsers} />}
+        </ErrorBoundary>
       </div>
     );
   }

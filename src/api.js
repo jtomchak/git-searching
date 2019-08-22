@@ -5,11 +5,17 @@
 
 const baseURL = "https://api.github.com/search/";
 
+
 const getUserBy = searchTerm => {
   return fetch(`${baseURL}users?q=${searchTerm}`)
-    .then(result => result.json())
-    .then(json => json)
-    .catch(err => err.message);
+    .then(result => result.json().then(json => {
+      if (result.status !== 200) throw new Error(result)
+      return {
+        headers: result.headers,
+        status: result.status,
+        json
+      }
+    }))
 };
 
 export { getUserBy };

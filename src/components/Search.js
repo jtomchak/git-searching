@@ -6,6 +6,7 @@ import { getUserBy } from "../api";
 
 class Search extends Component {
   state = {
+    error: null,
     isLoading: false,
     searchTerm: ""
   };
@@ -20,7 +21,9 @@ class Search extends Component {
 prevent submit from refreshing the page
 set loading to true
 fetch results from github api (async)
-setState with results, 💰
+invoke success callback from partent to send gituser results
+setState back to default, 💰
+unless error, then set error! ⛔
 */
   handleSearchSubmit = event => {
     event.preventDefault();
@@ -28,16 +31,16 @@ setState with results, 💰
     getUserBy(this.state.searchTerm).then(response => {
       this.props.handleSuccess(response)
       this.setState({
+        error: null,
         isLoading: false,
       })
     }).catch(err => {
-      this.setState({ isLoading: true });
-
+      this.setState({ error: err, isLoading: false });
     })
   };
 
   render() {
-    const { searchTerm, isLoading } = this.state;
+    const { searchTerm, isLoading, error } = this.state;
     // Set simple validation for searchterm length
     const isEnabled = searchTerm.length > 2;
     return (
@@ -49,10 +52,12 @@ setState with results, 💰
             inputTerm={searchTerm}
             isLoading={isLoading}
             isEnabled={isEnabled} />
+          {error && <span style={{ color: 'red' }}>{error.message}</span>}
         </div>
       </div>
     );
   }
 }
+
 
 export default Search;
