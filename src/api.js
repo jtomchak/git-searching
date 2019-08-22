@@ -7,7 +7,7 @@ const baseURL = "https://api.github.com/search/";
 
 
 const getUsersBySearchTerm = searchTerm => {
-  return getUsersBy(`${baseURL}users?q=${searchTerm}&page=11`)
+  return getUsersBy(`${baseURL}users?q=${searchTerm}`)
 };
 
 const getUsersWithPagination = url => {
@@ -17,7 +17,7 @@ const getUsersWithPagination = url => {
 const getUsersBy = url => {
   return fetch(url)
     .then(result => result.json().then(json => {
-      if (result.status !== 200) throw new Error(result)
+      if (result.status !== 200) throw new Error(result.statusText)
       return {
         headers: result.headers,
         status: result.status,

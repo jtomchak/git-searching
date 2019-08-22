@@ -35,6 +35,7 @@ unless error, then set error! ⛔
         isLoading: false,
       })
     }).catch(err => {
+      console.log(err)
       this.setState({ error: err, isLoading: false });
     })
   };
@@ -52,7 +53,7 @@ unless error, then set error! ⛔
             inputTerm={searchTerm}
             isLoading={isLoading}
             isEnabled={isEnabled} />
-          {error && <span style={{ color: 'red' }}>{error.message}</span>}
+          {error != null && <span style={{ color: 'red' }}>Server Error: {error.message}</span>}
         </div>
       </div>
     );

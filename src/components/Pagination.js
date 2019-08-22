@@ -26,14 +26,14 @@ export default class Pagination extends Component {
     return (
       <div className="column is-three-fifths is-offset-one-fifth is-expanded">
         <nav className="pagination is-centered" role="navigation" aria-label="pagination">
-          <a className="pagination-link" aria-label="Goto page 1">First</a>
-          <a className="pagination-link" aria-label="Goto page 45">Last</a>
+          <button onClick={() => this.handleOnClickPaginate(first)} className="pagination-link" aria-label="Goto first">First</button>
+          <button onClick={() => this.handleOnClickPaginate(last)} className="pagination-link" aria-label="Goto page last">Last</button>
           <ul className="pagination-list">
             <li>
-              <a className="pagination-previous">Previous</a>
+              <button onClick={() => this.handleOnClickPaginate(previous)} className="pagination-previous">Previous</button>
             </li>
             <li>
-              <a onClick={() => this.handleOnClickPaginate(next)} className="pagination-next">Next page</a>
+              <button onClick={() => this.handleOnClickPaginate(next)} className="pagination-next">Next page</button>
             </li>
           </ul>
         </nav>
