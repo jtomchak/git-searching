@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchInput from "./SearchInput"
 
-import { getUserBy } from "../api";
+import { getUsersBySearchTerm } from "../api";
 
 
 class Search extends Component {
@@ -28,7 +28,7 @@ unless error, then set error! ⛔
   handleSearchSubmit = event => {
     event.preventDefault();
     this.setState({ isLoading: true });
-    getUserBy(this.state.searchTerm).then(response => {
+    getUsersBySearchTerm(this.state.searchTerm).then(response => {
       this.props.handleSuccess(response)
       this.setState({
         error: null,

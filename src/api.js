@@ -6,8 +6,16 @@
 const baseURL = "https://api.github.com/search/";
 
 
-const getUserBy = searchTerm => {
-  return fetch(`${baseURL}users?q=${searchTerm}`)
+const getUsersBySearchTerm = searchTerm => {
+  return getUsersBy(`${baseURL}users?q=${searchTerm}&page=1`)
+};
+
+const getUsersWithPagination = url => {
+  return getUsersBy(url)
+}
+
+const getUsersBy = url => {
+  return fetch(url)
     .then(result => result.json().then(json => {
       if (result.status !== 200) throw new Error(result)
       return {
@@ -16,6 +24,6 @@ const getUserBy = searchTerm => {
         json
       }
     }))
-};
+}
 
-export { getUserBy };
+export { getUsersBySearchTerm, getUsersWithPagination };

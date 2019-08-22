@@ -19,7 +19,7 @@ class App extends Component {
 
 
   handleSearchSuccess = ({ json, headers }) => {
-    console.log(headers.get("Link"))
+    console.log(parseLink(headers.get("Link")))
     const { items, total_count } = json;
     this.setState({
       gitUsers: items,
@@ -46,4 +46,16 @@ class App extends Component {
   }
 }
 
+function parseLink(s) {
+  const output = {};
+  const regex = /<([^>]+)>; rel="([^"]+)"/g;
+
+  let m;
+  while (m = regex.exec(s)) {
+    const [_, v, k] = m;
+    output[k] = v;
+  }
+
+  return output;
+}
 export default App;

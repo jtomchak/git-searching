@@ -9,6 +9,7 @@ export default ({ handleInputOnChange, handleSubmit, inputTerm, isLoading, isEna
     >
       <div className="control is-expanded">
         <input
+          autoFocus
           className="input is-large"
           type="text"
           placeholder="Find a User"
