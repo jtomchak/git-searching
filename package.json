@@ -1,6 +1,6 @@
 {
   "name": "git-searching",
-  "homepage": "https://jtomchak.github.io/git-searching",
+  "homepage": "https://git-searching.netlify.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
