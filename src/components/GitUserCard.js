@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default ({ user }) => (
-  <div className="card">
-    <div className="card-content">
-      <div className="media">
-        <div className="media-left">
-          <figure className="image is-48x48">
-            <img className="is-rounded" src={user.avatar_url} alt="Avatar" />
-          </figure>
-        </div>
-        <div className="media-content">
-          <p className="title is-4">John Smith</p>
-          <p className="subtitle is-6">@{user.login}</p>
+import GitUserDetails from "./GitUserDetails";
+import { getUserDetails } from '../api';
+
+
+export default class GitUserCard extends Component {
+  state = {
+    error: null,
+    isLoading: false,
+    user: {}
+  }
+  componentDidMount() {
+    this.setState({ isLoading: true })
+    getUserDetails(this.props.user.login).then(response => {
+      this.setState({
+        isLoading: false,
+        user: response.json
+      })
+    }).catch(err => this.setState({ error: err.message }))
+  }
+
+  render() {
+    const { isLoading } = this.state;
+    const { name, bio, login, avatar_url } = this.state.user;
+    return (
+
+      <div className="card">
+        <div className="card-content">
+          {isLoading ? <div className="media"><div className="lds-ellipsis"><div></div><div></div><div></div></div></div> : <GitUserDetails user={this.state.user} isLoading={isLoading} />}
         </div>
       </div>
-
-      <div className="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris.
-        <br />
-        <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      </div>
-    </div>
-  </div>
-)
+    )
+  }
+}

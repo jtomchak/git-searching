@@ -3,19 +3,36 @@
 // https://developer.github.com/v3/guides/traversing-with-pagination/
 // Always rely on these link relations provided to you. Don't try to guess or construct your own URL. 
 
-const baseURL = "https://api.github.com/search/";
+const baseURL = "https://api.github.com/";
+const searchURL = `${baseURL}search/`
+const userDetailsURL = `${baseURL}users/`
+
+
+// github rate limiting on the api can be rough
+// when you are making lots of calls in dev
+// create a .env with a git auth token labeled 'REACT_APP_GIT_TOKEN' 
+// to easy your pain. 
+const options = process.env.NODE_ENV === 'development' ? {
+  headers: {
+    Authorization: `token ${process.env.REACT_APP_GIT_TOKEN}`
+  }
+} : {}
 
 
 const getUsersBySearchTerm = searchTerm => {
-  return getUsersBy(`${baseURL}users?q=${searchTerm}`)
+  return parsePayload(`${searchURL}users?q=${searchTerm}`)
 };
 
 const getUsersWithPagination = url => {
-  return getUsersBy(url)
+  return parsePayload(url)
 }
 
-const getUsersBy = url => {
-  return fetch(url)
+const getUserDetails = userLogin => {
+  return parsePayload(userDetailsURL + userLogin)
+}
+
+const parsePayload = url => {
+  return fetch(url, options)
     .then(result => result.json().then(json => {
       if (result.status !== 200) throw new Error(result.statusText)
       return {
@@ -26,4 +43,4 @@ const getUsersBy = url => {
     }))
 }
 
-export { getUsersBySearchTerm, getUsersWithPagination };
+export { getUsersBySearchTerm, getUsersWithPagination, getUserDetails };

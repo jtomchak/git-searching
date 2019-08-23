@@ -38,7 +38,8 @@ class App extends Component {
         <Search handleSuccess={this.handleSearchSuccess}></Search>
         <ErrorBoundary>
           <TotalUsers users={totalUsers} />
-          <Pagination links={paginationLinks} handleSuccess={this.handleSearchSuccess} />
+          {totalUsers > 30 &&
+            <Pagination links={paginationLinks} handleSuccess={this.handleSearchSuccess} />}
           {gitUsers.length > 0 && <GitUserList gitUsers={gitUsers} />}
         </ErrorBoundary>
       </div>
