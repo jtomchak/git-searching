@@ -24,6 +24,11 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
+.card+.card {
+  margin-top: 15px;
+
+}
+
 // loading animation
 
 .loader {

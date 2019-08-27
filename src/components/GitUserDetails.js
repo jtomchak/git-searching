@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 export default function ({ user }) {
-  const { name, bio, login, avatar_url } = user;
+  const { name, bio, login, avatar_url, public_gists, following, public_repos } = user;
   return (
     <Fragment>
       <div className="media">
@@ -18,8 +18,6 @@ export default function ({ user }) {
 
       <div className="content">
         {bio}
-        <br />
-        <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
       </div>
     </Fragment>
   )

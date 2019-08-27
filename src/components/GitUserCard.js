@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import GitUserDetails from "./GitUserDetails";
+import GitUserFooter from "./GitUserFooter"
 import { getUserDetails } from '../api';
 
 
@@ -29,6 +30,7 @@ export default class GitUserCard extends Component {
         <div className="card-content">
           {isLoading ? <div className="media"><div className="lds-ellipsis"><div></div><div></div><div></div></div></div> : <GitUserDetails user={this.state.user} isLoading={isLoading} />}
         </div>
+        {!isLoading && <GitUserFooter user={this.state.user} />}
       </div>
     )
   }
