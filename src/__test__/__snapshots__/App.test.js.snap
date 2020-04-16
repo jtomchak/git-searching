@@ -39,8 +39,14 @@ exports[`matches snapshot 1`] = `
           <div
             class="control is-expanded"
           >
+            <label
+              for="search-input"
+            >
+              Title
+            </label>
             <input
               class="input is-large"
+              id="search-input"
               placeholder="Find a User"
               type="text"
               value=""
