@@ -23,14 +23,14 @@ export default class GitUserCard extends Component {
 
   render() {
     const { isLoading } = this.state;
-    const { name, bio, login, avatar_url } = this.state.user;
+    const { user } = this.state;
     return (
 
       <div className="card">
         <div className="card-content">
-          {isLoading ? <div className="media"><div className="lds-ellipsis"><div></div><div></div><div></div></div></div> : <GitUserDetails user={this.state.user} isLoading={isLoading} />}
+          {isLoading ? <div className="media"><div className="lds-ellipsis"><div></div><div></div><div></div></div></div> : <GitUserDetails user={user} isLoading={isLoading} />}
         </div>
-        {!isLoading && <GitUserFooter user={this.state.user} />}
+        {!isLoading && <GitUserFooter user={user} />}
       </div>
     )
   }

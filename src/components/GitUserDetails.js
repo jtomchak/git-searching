@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 export default function ({ user }) {
-  const { name, bio, login, avatar_url, public_gists, following, public_repos } = user;
+  const { name, bio, login, avatar_url } = user;
   return (
     <Fragment>
       <div className="media">
