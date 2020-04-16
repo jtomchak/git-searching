@@ -24,3 +24,7 @@ These are the objectives of our Git Search Application.
 - In order to confidently make changes to our application, we'll need some testing around it so we can quickly and regularly know not if, but when we've broken something.
 - So where so we start? Somewhere small, and move on from there.
 - HeroTitle using [react-testing-library](https://testing-library.com/docs/react-testing-library/intro)
+
+## [02-Search-Test](https://github.com/jtomchak/git-searching/tree/02-search-test)
+
+- Next Component up is our search component, a bit more involved than the last one, but again, start small and add to it.

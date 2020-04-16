@@ -36,14 +36,14 @@ exports[`matches snapshot 1`] = `
         <form
           class="field has-addons is-expanded"
         >
+          <label
+            for="search-input"
+          >
+            search
+          </label>
           <div
             class="control is-expanded"
           >
-            <label
-              for="search-input"
-            >
-              Title
-            </label>
             <input
               class="input is-large"
               id="search-input"
