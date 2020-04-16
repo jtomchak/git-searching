@@ -9,8 +9,8 @@ export default ({
 }) => {
   return (
     <form className="field has-addons is-expanded" onSubmit={handleSubmit}>
+      <label htmlFor="search-input">Search</label>
       <div className="control is-expanded">
-        <label htmlFor="search-input">Title</label>
         <input
           id="search-input"
           autoFocus
