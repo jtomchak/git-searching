@@ -55,6 +55,7 @@ class App extends Component {
  * @param {*} s
  * @returns
  */
+/* eslint-disable */
 function parseLink(s) {
   const output = {};
   const regex = /<([^>]+)>; rel="([^"]+)"/g;
@@ -67,4 +68,5 @@ function parseLink(s) {
 
   return output;
 }
+/* eslint-enable */
 export default App;
