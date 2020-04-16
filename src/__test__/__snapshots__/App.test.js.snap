@@ -33,28 +33,31 @@ exports[`matches snapshot 1`] = `
       <div
         class="column is-half is-offset-one-quarter"
       >
-        <div
+        <form
           class="field has-addons is-expanded"
         >
           <div
-            class="control"
+            class="control is-expanded"
           >
             <input
               class="input is-large"
-              placeholder="Find a repository"
+              placeholder="Find a User"
               type="text"
+              value=""
             />
           </div>
           <div
             class="control"
           >
-            <a
-              class="button is-info is-large"
+            <button
+              class="button is-info is-large "
+              disabled=""
+              type="submit"
             >
               Search
-            </a>
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
