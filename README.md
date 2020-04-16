@@ -28,3 +28,5 @@ These are the objectives of our Git Search Application.
 ## [02-Search-Test](https://github.com/jtomchak/git-searching/tree/02-search-test)
 
 - Next Component up is our search component, a bit more involved than the last one, but again, start small and add to it.
+- Test that the elements: label, input, and button are rendered accordingly.
+- Then we can test the events of enable/disable the button, adding text to the field, and finally clicking submit on the button!
