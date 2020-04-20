@@ -31,3 +31,7 @@ These are the objectives of our Git Search Application.
 - Test that the elements: label, input, and button are rendered accordingly.
 - Then we can test the events of enable/disable the button, adding text to the field, and finally clicking submit on the button!
 - The nice part so far is that these are functional components, meaning they do not have internal state or http calls we need to worry about. Making them pretty straight forward to mock, and test.
+
+## [03-Search-Test](https://github.com/jtomchak/git/searching/tree/03-search-test)
+
+- Moving up to the next component, the Search component. Here we want to focus on the the Search component is providing to the user. Being mindful not to retest what we just did with the search-input, and avoid implementation details and more on user reactivity.
