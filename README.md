@@ -25,7 +25,7 @@ These are the objectives of our Git Search Application.
 - So where so we start? Somewhere small, and move on from there.
 - HeroTitle using [react-testing-library](https://testing-library.com/docs/react-testing-library/intro)
 
-## [02-Search-Test](https://github.com/jtomchak/git-searching/tree/02-search-test)
+## [02-SearchInput-Test](https://github.com/jtomchak/git-searching/tree/02-search-input-test)
 
 - Next Component up is our search component, a bit more involved than the last one, but again, start small and add to it.
 - Test that the elements: label, input, and button are rendered accordingly.
