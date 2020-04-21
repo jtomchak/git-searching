@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { getUsersBySearchTerm as mockGetUserBySearchTerm } from "../api";
+import { getUsersBySearchTerm as mockGetUsersBySearchTerm } from "../api";
 import Search from "../components/Search";
 
 jest.mock("../api");
@@ -50,7 +50,7 @@ test("Search Button is enabled/disabled by text input of more/less than 2 chars"
 
 test("Clicking the search button will fetch search results", () => {
   // https://jestjs.io/docs/en/mock-function-api.html#mockfnmockreturnvalueoncevalue
-  mockGetUserBySearchTerm.mockResolvedValueOnce(); // Returns a resolved promise, no data
+  mockGetUsersBySearchTerm.mockResolvedValueOnce(); // Returns a resolved promise, no data
   const { getByLabelText, getByText } = render(
     <Search handleSuccess={handleSuccessMock} />
   );
@@ -59,6 +59,6 @@ test("Clicking the search button will fetch search results", () => {
   expect(searchButton).toBeEnabled();
   fireEvent.click(searchButton);
 
-  expect(mockGetUserBySearchTerm).toHaveBeenCalledTimes(1);
+  expect(mockGetUsersBySearchTerm).toHaveBeenCalledTimes(1);
   // expect(handleSuccessMock).toBeCalledWith('Some argument');
 });
