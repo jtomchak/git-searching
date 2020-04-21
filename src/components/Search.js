@@ -36,8 +36,8 @@ unless error, then set error! ⛔
         });
       })
       .catch((err) => {
-        console.log(err);
-        this.setState({ error: err, isLoading: false });
+        console.log(err.message);
+        this.setState({ error: err.message, isLoading: false });
       });
   };
 
@@ -55,9 +55,7 @@ unless error, then set error! ⛔
             isLoading={isLoading}
             isEnabled={isEnabled}
           />
-          {error != null && (
-            <span style={{ color: "red" }}>Server Error: {error.message}</span>
-          )}
+          {error && <span style={{ color: "red" }}>Server Error: {error}</span>}
         </div>
       </div>
     );

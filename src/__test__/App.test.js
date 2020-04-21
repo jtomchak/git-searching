@@ -5,7 +5,7 @@ import App from "../App";
 
 afterEach(cleanup);
 
-it("matches snapshot", () => {
+it("Renders without Crashing", () => {
   const { asFragment } = render(<App />);
   expect(asFragment()).toMatchSnapshot();
 });
