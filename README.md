@@ -35,3 +35,9 @@ These are the objectives of our Git Search Application.
 ## [03-Search-Test](https://github.com/jtomchak/git/searching/tree/03-search-test)
 
 - Moving up to the next component, the Search component. Here we want to focus on the the Search component is providing to the user. Being mindful not to retest what we just did with the search-input, and avoid implementation details and more on user reactivity.
+
+## [04-GitUser-parts](https://github.com/jtomchak/git/searching/tree/04-gituser-parts)
+
+- Having covered the search, input, and submit fairly well, let's dive into the results we get back, the GitUser's Card.
+- `GitUserCard` is made up of serveral pieces. The user's details / bio, footer with links / info on repos, gists, and following. Then there's the Card component itself that has state and an additional API fetch to Github to get all the previously mentioned data representing a second level of wait and load.
+- Similair to what we did before, let's drill down to the the simplist component and work our way up to the state and logical bits. That would be the Details and Footer parts. Then, what that doesn't cover in the partent Card component, like the actual API call, we'll tackle that.
