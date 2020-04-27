@@ -41,3 +41,4 @@ These are the objectives of our Git Search Application.
 - Having covered the search, input, and submit fairly well, let's dive into the results we get back, the GitUser's Card.
 - `GitUserCard` is made up of serveral pieces. The user's details / bio, footer with links / info on repos, gists, and following. Then there's the Card component itself that has state and an additional API fetch to Github to get all the previously mentioned data representing a second level of wait and load.
 - Similair to what we did before, let's drill down to the the simplist component and work our way up to the state and logical bits. That would be the Details and Footer parts. Then, what that doesn't cover in the partent Card component, like the actual API call, we'll tackle that.
+- _Exercises_ complete `GitUserFooter` and then let's go through it together.
