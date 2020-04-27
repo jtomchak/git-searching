@@ -32,11 +32,11 @@ These are the objectives of our Git Search Application.
 - Then we can test the events of enable/disable the button, adding text to the field, and finally clicking submit on the button!
 - The nice part so far is that these are functional components, meaning they do not have internal state or http calls we need to worry about. Making them pretty straight forward to mock, and test.
 
-## [03-Search-Test](https://github.com/jtomchak/git/searching/tree/03-search-test)
+## [03-Search-Test](https://github.com/jtomchak/git-searching/tree/03-search-test)
 
 - Moving up to the next component, the Search component. Here we want to focus on the the Search component is providing to the user. Being mindful not to retest what we just did with the search-input, and avoid implementation details and more on user reactivity.
 
-## [04-GitUser-parts](https://github.com/jtomchak/git/searching/tree/04-gituser-parts)
+## [04-GitUser-parts](https://github.com/jtomchak/git-searching/tree/04-gituser-parts)
 
 - Having covered the search, input, and submit fairly well, let's dive into the results we get back, the GitUser's Card.
 - `GitUserCard` is made up of serveral pieces. The user's details / bio, footer with links / info on repos, gists, and following. Then there's the Card component itself that has state and an additional API fetch to Github to get all the previously mentioned data representing a second level of wait and load.
