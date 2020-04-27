@@ -42,3 +42,9 @@ These are the objectives of our Git Search Application.
 - `GitUserCard` is made up of serveral pieces. The user's details / bio, footer with links / info on repos, gists, and following. Then there's the Card component itself that has state and an additional API fetch to Github to get all the previously mentioned data representing a second level of wait and load.
 - Similair to what we did before, let's drill down to the the simplist component and work our way up to the state and logical bits. That would be the Details and Footer parts. Then, what that doesn't cover in the partent Card component, like the actual API call, we'll tackle that.
 - _Exercises_ complete `GitUserFooter` and then let's go through it together.
+
+## [05-GitUserCard-test](https://github.com/jtomchak/git-searching/tree/05-gitusercard-test)
+
+- This component takes a prop `user.login` and makes a call to the github api for that specific users details. Those details we've already seen in the child components we've tested. Bio, gist, followers are all things we have to fetch once the search results come back.
+- The API call is done on `componentDidMount`, and has some state with it like loading, error, and the actual user payload returned from fetch.
+- We'll want to mock the the API call, like we did previously, both the resolve and reject.
