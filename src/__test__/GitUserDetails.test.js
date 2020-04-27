@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen, getDefaultNormalizer } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import GitUserDetails from "../components/GitUserDetails";
@@ -26,4 +26,22 @@ const user = {
 test("GitUserDetails Renders without blowing up", () => {
   const { container } = render(<GitUserDetails user={user} />);
   expect(container.firstChild).toEqual(expect.anything()); // anything will match all but null and undefined
+});
+
+/**
+ * User Props render to DOM
+ * https://github.com/testing-library/jest-dom#tohaveattribute
+ * text match normalizer https://testing-library.com/docs/dom-testing-library/api-queries#textmatch-examples
+ */
+test("GitUserDetails actually shows the user's details on the DOM", () => {
+  const { getByText, getByAltText } = render(<GitUserDetails user={user} />);
+  const avatar = getByAltText("Avatar");
+  const userBio = screen.getByText(user.bio, {
+    normalizer: getDefaultNormalizer({ trim: false }),
+  });
+  expect(getByText(/jesse tomchak/i)).toBeInTheDocument();
+  expect(getByText(/^@jtomchak/)).toBeInTheDocument();
+  expect(userBio).toBeInTheDocument();
+  //get image by alt tag, and check it has the correct source url
+  expect(avatar).toHaveAttribute("src", user.avatar_url);
 });
